@@ -4,7 +4,6 @@ import { Radial } from "../components/Skills.jsx";
 export default function About() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-16 space-y-16">
-      
       {/* About Section */}
       <ParallaxSection>
         <div className="grid gap-10 items-start lg:grid-cols-3">
@@ -13,7 +12,7 @@ export default function About() {
             <img
               src="/hero-art.svg"
               alt="Emmanuel Mokwunye"
-              className="w-full max-w-xs max-h-[300px] object-contain rounded-2xl border border-white/20 shadow-lg"
+              className="w-full max-w-xs sm:max-w-sm h-auto object-contain rounded-2xl border border-white/20 shadow-lg"
             />
           </div>
 
@@ -51,7 +50,8 @@ export default function About() {
           <h2 className="font-display text-2xl mb-6 text-center lg:text-left">
             Skills
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+          {/* 2 per row on mobile, 3 per row on md+ */}
+          <div className="grid gap-6 grid-cols-2 md:grid-cols-3">
             <Radial label="React" value={90} />
             <Radial label="Tailwind" value={92} />
             <Radial label="GSAP / Motion" value={88} />
@@ -81,7 +81,6 @@ export default function About() {
           </div>
         </div>
       </ParallaxSection>
-      
     </div>
   );
 }
