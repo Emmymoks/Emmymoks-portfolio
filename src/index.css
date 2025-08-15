@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 246 6% 10%;
+  --fg: 0 0% 96%;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+.neon {
+  text-shadow: 0 0 6px rgba(57,255,20,.7), 0 0 20px rgba(57,255,20,.6);
+  filter: drop-shadow(0 0 8px rgba(57,255,20,.4));
+}
+
+.neon-btn {
+  box-shadow: 0 0 8px rgba(124,255,178,.7), inset 0 0 6px rgba(124,255,178,.4);
+}
+
+.cursor-dot, .cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  z-index: 50;
+  transition: transform .08s ease-out, opacity .2s ease-out;
+}
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: white;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: 2px solid rgba(255,255,255,.6);
+  transform: translate(-50%, -50%);
+}
+
+.parallax-bg {
+  background: radial-gradient(1000px 600px at 50% -200px, rgba(124,255,178,.15), transparent 60%),
+              radial-gradient(800px 400px at 90% 20%, rgba(124,255,178,.12), transparent 60%),
+              radial-gradient(600px 300px at 10% 40%, rgba(124,255,178,.12), transparent 60%);
+}
