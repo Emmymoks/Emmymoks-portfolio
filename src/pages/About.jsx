@@ -10,7 +10,7 @@ export default function About() {
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-start">
             <img
-              src="/hero-art.svg"
+              src="/image.jpg"
               alt="Emmanuel Mokwunye"
               className="w-full max-w-xs sm:max-w-sm h-auto object-contain rounded-2xl border border-white/20 shadow-lg"
             />
