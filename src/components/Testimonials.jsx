@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 
 const data = [
-  { name: 'Amaka N.', role: 'Product Manager — Nuture', quote: 'Emmanuel balances aesthetics with performance. Our web dashboard feels delightful and fast.', avatar: '/avatars/1.svg' },
-  { name: 'Chinedu K.', role: 'Founder — Foodly', quote: 'Pixel-perfect UI, smooth animations, and clean code. Could not ask for more.', avatar: '/avatars/2.svg' },
-  { name: 'Sarah O.', role: 'CMO — Koyi Labs', quote: 'Brand refresh and website redesign were a hit. Traffic and conversions improved.', avatar: '/avatars/3.svg' },
+  { name: 'Amaka N.', quote: 'Emmanuel balances aesthetics with performance. Our web dashboard feels delightful and fast.', avatar: '/avatars/1.svg' },
+  { name: 'Chinedu K.', quote: 'Pixel-perfect UI, smooth animations, and clean code. Could not ask for more.', avatar: '/avatars/2.svg' },
+  { name: 'Sarah O.', quote: 'Brand refresh and website redesign were a hit. Traffic and conversions improved.', avatar: '/avatars/3.svg' },
+  { name: 'Favour O.', quote: 'Emmanuel balances was really friendly. He also delivered my work on time.', avatar: '/avatars/1.svg' },
+  { name: 'Joy S.', quote: 'He did a really perfect job for me. Looking to work with him more.', avatar: '/avatars/2.svg' },
+  { name: 'David M.', quote: 'Amazing designs!. His Designs have helped me attract a lot of clients.', avatar: '/avatars/3.svg' },
 ]
 
 export default function Testimonials(){
