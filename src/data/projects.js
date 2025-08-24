@@ -15,6 +15,51 @@ const projects = [
     external: 'https://ollysdelighyt.netlify.app/'
   },
   {
+    slug: 'Photographer-Portfolio',
+    title: 'Emmyvisualz Photography Portfolio',
+    category: 'Web',
+    role: 'Front-End Developer',
+    tools: ['HTML', 'CSS', 'JavaScript'],
+    description:
+      'A modern, detailed portfolio website for a photographer with modern responsive designs and animations.',
+    thumbnail: '/projects/emmyvisualz.png',
+    screens: [
+      '/projects/emmyvisualz.png',
+      '/projects/emmyvisualz-mobile.png'
+    ],
+    external: 'https://emmyvisualz.netlify.app/'
+  },
+  {
+    slug: 'Gym-Website',
+    title: 'fitnessonpoint247 Gym Website',
+    category: 'Web',
+    role: 'Front-End Developer',
+    tools: ['REACT', 'TailwindCSS', 'Vite'],
+    description:
+      'A modern gym website with a sleek design and smooth animations.',
+    thumbnail: '/projects/fitnessonpoint247.png',
+    screens: [
+      '/projects/fitnessonpoint247.png',
+      '/projects/fitnessonpoint247-mobile.png'
+    ],
+    external: 'https://fitnessonpoint247.vercel.app/'
+  },
+  {
+    slug: 'Beauty-Studio-Website',
+    title: 'Beauty Lab Studios Website',
+    category: 'Web',
+    role: 'Front-End Developer',
+    tools: ['REACT', 'TailwindCSS', 'Vite'],
+    description:
+      'A modern beauty studio website with a sleek design and smooth animations.',
+    thumbnail: '/projects/beauty-lab-studios.png',
+    screens: [
+      '/projects/beauty-lab-studios.png',
+      '/projects/beauty-lab-studios-mobile.png'
+    ],
+    external: 'https://beauty-lab-studios.vercel.app/'
+  },
+  {
     slug: 'luxury-car-rental-website',
     title: 'Swift Luxury Car Rental',
     category: 'Web',
