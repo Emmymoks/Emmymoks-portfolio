@@ -6,7 +6,7 @@ export default function HeroAnimatedSVG() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Core floating pulse
+      // Core pulse animation
       gsap.fromTo(
         '#core',
         { scale: 0.95 },
@@ -21,7 +21,6 @@ export default function HeroAnimatedSVG() {
         repeat: -1,
         ease: 'linear'
       })
-
       gsap.to('#ring2', {
         rotate: -360,
         transformOrigin: '50% 50%',
@@ -29,9 +28,35 @@ export default function HeroAnimatedSVG() {
         repeat: -1,
         ease: 'linear'
       })
+
+      // Floating particles animation
+      const particles = gsap.utils.toArray('.particle')
+      particles.forEach((particle) => {
+        gsap.to(particle, {
+          x: 'random(-30, 30)',
+          y: 'random(-30, 30)',
+          opacity: 'random(0.3, 1)',
+          scale: 'random(0.6, 1.2)',
+          duration: 'random(3, 6)',
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        })
+      })
+
+      // Nebula pulse
+      gsap.to('#nebula', {
+        scale: 1.1,
+        opacity: 0.6,
+        duration: 6,
+        repeat: -1,
+        yoyo: true,
+        transformOrigin: '50% 50%',
+        ease: 'sine.inOut'
+      })
     }, svgRef)
 
-    // Mouse movement parallax
+    // Parallax & scroll-based warp
     const onMove = (e) => {
       const { innerWidth: w, innerHeight: h } = window
       const x = (e.clientX / w - 0.5) * 20
@@ -39,10 +64,24 @@ export default function HeroAnimatedSVG() {
       gsap.to(svgRef.current, { x, y, duration: 0.6, ease: 'power2.out' })
     }
 
+    const onScroll = () => {
+      const scrollY = window.scrollY
+      const warp = scrollY * 0.05 // more scroll → more warp
+      gsap.to('.particle', {
+        x: (i) => `+=${(Math.random() - 0.5) * warp}`,
+        y: (i) => `+=${(Math.random() - 0.5) * warp}`,
+        duration: 1,
+        ease: 'power1.out'
+      })
+    }
+
     window.addEventListener('mousemove', onMove)
+    window.addEventListener('scroll', onScroll)
+
     return () => {
       ctx.revert()
       window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [])
 
@@ -59,6 +98,12 @@ export default function HeroAnimatedSVG() {
           <stop offset="100%" stopColor="#00ff88" stopOpacity="0.3" />
         </radialGradient>
 
+        {/* Nebula gradient */}
+        <radialGradient id="nebulaGrad" cx="50%" cy="50%" r="70%">
+          <stop offset="0%" stopColor="#0ff" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#006" stopOpacity="0" />
+        </radialGradient>
+
         {/* Outer glow filter */}
         <filter id="glow">
           <feGaussianBlur stdDeviation="8" result="blur" />
@@ -68,6 +113,16 @@ export default function HeroAnimatedSVG() {
           </feMerge>
         </filter>
       </defs>
+
+      {/* Nebula background */}
+      <circle
+        id="nebula"
+        cx="200"
+        cy="200"
+        r="160"
+        fill="url(#nebulaGrad)"
+        opacity="0.4"
+      />
 
       {/* Pulsing core */}
       <circle
@@ -104,12 +159,19 @@ export default function HeroAnimatedSVG() {
         />
       </g>
 
-      {/* Particle orbs */}
+      {/* Floating neon particles */}
       <g filter="url(#glow)">
-        <circle cx="140" cy="120" r="4" fill="#00f7ff" />
-        <circle cx="260" cy="150" r="3" fill="#00ff88" />
-        <circle cx="170" cy="280" r="5" fill="#00f7ff" />
-        <circle cx="230" cy="250" r="4" fill="#00ff88" />
+        {Array.from({ length: 15 }).map((_, i) => (
+          <circle
+            key={i}
+            className="particle"
+            cx={Math.random() * 400}
+            cy={Math.random() * 400}
+            r={Math.random() * 4 + 2}
+            fill={Math.random() > 0.5 ? '#00f7ff' : '#00ff88'}
+            opacity="0.6"
+          />
+        ))}
       </g>
     </svg>
   )
