@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Cursor from './components/Cursor.jsx'
+import AIChat from './components/AIChat.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Portfolio from './pages/Portfolio.jsx'
@@ -22,7 +23,8 @@ export default function App() {
           <Route path="/project/:slug" element={<ProjectCase />} />
         </Routes>
       </main>
-      <Footer />
+  <Footer />
+  <AIChat />
     </div>
   )
 }
